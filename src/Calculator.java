@@ -16,18 +16,19 @@ public class Calculator {
         int num1 = getInt();
         int num2 = getInt();
         char operation = getOperation();
-        int result = calcul(num1,num2,operation);
-        System.out.println("Результат операции: "+result);
+        int result = calcul(num1, num2, operation);
+        System.out.println("Результат операции: " + result);
 
     }
-    public static int getInt(){
+
+    public static int getInt() {
         System.out.println("Введите число:");
         int num;
-        if(scanner.hasNextInt()){
+        if (scanner.hasNextInt()) {
             num = scanner.nextInt();
         } else {
             System.out.println("Вы допустили ошибку при вводе числа. Попробуйте еще раз.");
-            scanner.next();//рекурсия
+            scanner.next();
             num = getInt();
         }
         return num;
@@ -41,7 +42,6 @@ public class Calculator {
         } else {
             System.out.println("Вы допустили ошибку при вводе операции, попробуйте еще раз.");
             scanner.next();
-            //рекурсия
             operation = getOperation();
         }
         return operation;
@@ -64,8 +64,8 @@ public class Calculator {
                 break;
             default:
                 System.out.println("Операция не распознана. Повторите ввод.");
+                scanner.next();
                 result = calcul(num1, num2, getOperation());
-                //рекурсия
         }
         return result;
     }
